@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Scoring Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <form class="mainForm" action="" method="POST">
+        <div class="main">
+            <div class="headermain">
+                <h1>Credit Scoring Dashboard</h1>
+            </div>
+            <div class="submain">
+                <div class="container">
+                    <div class="header">
+                        <h1>Global Dashboard</h1>
+                    </div>
+                    <div class="graphs">
+                        {%for key,val in dict.items()%}
+                        <h3>{{val}}</h3>
+                        <img src="{{key}}">
+                        {%endfor%}
+                    </div>
+                </div>
+                <div class="container">
+                   <div class="header">
+                        <h1>Enter a client ID, e.g 394688, 346224, 200400, 144981, 145206</h1>
+                   </div>
+                   <div class="result">
+                        <div class="input">
+                            <h4>Client ID:</h4>
+                            <input type="text", class="textbox" name="id_textBox">
+                            <input type="submit", value="Search", class="button">
+                        </div>
+                        <div class="output">
+                            {% for message in get_flashed_messages()%}
+                                <p>{{message}}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="graphs">
+                            {%for key,val in imgs.items()%}
+                            <h3>{{val}}</h3>
+                            <img src="{{key}}">
+                            {%endfor%}
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

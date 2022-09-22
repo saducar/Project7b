@@ -1,0 +1,6 @@
+numpy
+pandas
+matplotlib
+flask
+MarkupSafe
+gunicorn
